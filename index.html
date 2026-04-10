@@ -11,8 +11,7 @@
         --gold-soft: #e6d3a0;
         --text: #f4f1ea;
         --muted: #cfc7b6;
-        --line: rgba(230, 211, 160, 0.7);
-        --card: #090909;
+        --line: rgba(230, 211, 160, 0.72);
       }
 
       * {
@@ -42,16 +41,14 @@
         min-height: calc(100vh - 36px);
         border: 3px solid var(--gold);
         padding: 14px;
-        position: relative;
       }
 
       .frame-inner {
         min-height: calc(100vh - 70px);
-        border: 2px solid rgba(255, 255, 255, 0.85);
+        border: 2px solid rgba(255, 255, 255, 0.88);
         padding: 28px 18px 30px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
       }
 
       .cover .frame-inner {
@@ -61,16 +58,18 @@
         gap: 28px;
       }
 
-      .laurel {
-        font-size: 64px;
-        color: var(--gold);
-        line-height: 1;
+      .logo {
+        width: 220px;
+        max-width: 62vw;
+        height: auto;
+        display: block;
+        object-fit: contain;
       }
 
       .brand {
         color: var(--gold);
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 2rem;
+        font-size: 1.9rem;
         letter-spacing: 1px;
         text-transform: uppercase;
       }
@@ -79,9 +78,9 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        background: rgba(0, 0, 0, 0.92);
-        border-top: 1px solid rgba(201, 163, 77, 0.25);
-        border-bottom: 1px solid rgba(201, 163, 77, 0.25);
+        background: rgba(0, 0, 0, 0.94);
+        border-top: 1px solid rgba(201, 163, 77, 0.2);
+        border-bottom: 1px solid rgba(201, 163, 77, 0.2);
         padding: 10px 12px;
         overflow-x: auto;
         white-space: nowrap;
@@ -93,14 +92,14 @@
         text-decoration: none;
         font-size: 0.9rem;
         padding: 8px 12px;
-        border: 1px solid rgba(201, 163, 77, 0.4);
+        border: 1px solid rgba(201, 163, 77, 0.38);
         border-radius: 999px;
         margin-right: 8px;
       }
 
       .section-title {
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 2.5rem;
+        font-size: 2.45rem;
         text-align: center;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -184,19 +183,20 @@
         }
 
         .brand {
-          font-size: 3.2rem;
+          font-size: 3rem;
         }
 
-        .laurel {
-          font-size: 92px;
+        .logo {
+          width: 280px;
+          max-width: 28vw;
         }
 
         .section-title {
-          font-size: 4.2rem;
+          font-size: 4rem;
         }
 
         .item-name {
-          font-size: 1.5rem;
+          font-size: 1.45rem;
         }
 
         .item-desc {
@@ -204,7 +204,7 @@
         }
 
         .item-price {
-          font-size: 1.5rem;
+          font-size: 1.45rem;
         }
 
         .menu-nav {
@@ -217,7 +217,7 @@
     <section class="page cover" id="inicio">
       <div class="frame">
         <div class="frame-inner">
-          <div class="laurel">⌒</div>
+          <img src="laurel.webp" alt="Logo Inmortal Hookah" class="logo" />
           <h1 class="brand">Inmortal Hookah</h1>
         </div>
       </div>
@@ -516,7 +516,7 @@
             </div>
             <div class="menu-item">
               <div class="item-info">
-                <div class="item-name">Red LabelL</div>
+                <div class="item-name">Red Label</div>
               </div>
               <div class="item-price">7,5€</div>
             </div>
