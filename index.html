@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inmortal Hookah</title>
+    <style>
+      :root {
+        --bg: #050505;
+        --gold: #c9a34d;
+        --gold-soft: #e6d3a0;
+        --text: #f4f1ea;
+        --muted: #cfc7b6;
+        --line: rgba(230, 211, 160, 0.7);
+        --card: #090909;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.4;
+      }
+
+      .page {
+        min-height: 100vh;
+        padding: 18px;
+        background: #000;
+      }
+
+      .frame {
+        min-height: calc(100vh - 36px);
+        border: 3px solid var(--gold);
+        padding: 14px;
+        position: relative;
+      }
+
+      .frame-inner {
+        min-height: calc(100vh - 70px);
+        border: 2px solid rgba(255, 255, 255, 0.85);
+        padding: 28px 18px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .cover .frame-inner {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 28px;
+      }
+
+      .laurel {
+        font-size: 64px;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .brand {
+        color: var(--gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .menu-nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(0, 0, 0, 0.92);
+        border-top: 1px solid rgba(201, 163, 77, 0.25);
+        border-bottom: 1px solid rgba(201, 163, 77, 0.25);
+        padding: 10px 12px;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .menu-nav a {
+        display: inline-block;
+        color: var(--gold-soft);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        border: 1px solid rgba(201, 163, 77, 0.4);
+        border-radius: 999px;
+        margin-right: 8px;
+      }
+
+      .section-title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.5rem;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text);
+        margin-bottom: 18px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: var(--line);
+        margin: 0 auto 28px;
+      }
+
+      .menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .item-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .item-name {
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+
+      .item-desc {
+        margin-top: 2px;
+        color: var(--muted);
+        font-style: italic;
+        font-size: 0.95rem;
+      }
+
+      .item-price {
+        color: var(--text);
+        font-weight: bold;
+        font-size: 1.1rem;
+        white-space: nowrap;
+        padding-left: 8px;
+      }
+
+      .dual-section {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .footer-note {
+        margin-top: auto;
+        padding-top: 40px;
+        color: var(--muted);
+        font-style: italic;
+        font-size: 0.95rem;
+      }
+
+      @media (min-width: 768px) {
+        .page {
+          padding: 28px;
+        }
+
+        .frame {
+          min-height: calc(100vh - 56px);
+          padding: 18px;
+        }
+
+        .frame-inner {
+          min-height: calc(100vh - 96px);
+          padding: 42px 70px 40px;
+        }
+
+        .brand {
+          font-size: 3.2rem;
+        }
+
+        .laurel {
+          font-size: 92px;
+        }
+
+        .section-title {
+          font-size: 4.2rem;
+        }
+
+        .item-name {
+          font-size: 1.5rem;
+        }
+
+        .item-desc {
+          font-size: 1.05rem;
+        }
+
+        .item-price {
+          font-size: 1.5rem;
+        }
+
+        .menu-nav {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="page cover" id="inicio">
+      <div class="frame">
+        <div class="frame-inner">
+          <div class="laurel">⌒</div>
+          <h1 class="brand">Inmortal Hookah</h1>
+        </div>
+      </div>
+    </section>
+
+    <nav class="menu-nav">
+      <a href="#comida">Comida</a>
+      <a href="#postres-batidos">Postres y Batidos</a>
+      <a href="#bebidas">Bebidas</a>
+      <a href="#cervezas-vinos">Cervezas y Vinos</a>
+      <a href="#combinados">Combinados</a>
+      <a href="#hookahs">Hookahs</a>
+    </nav>
+
+    <section class="page" id="comida">
+      <div class="frame">
+        <div class="frame-inner">
+          <h2 class="section-title">Comida</h2>
+          <div class="divider"></div>
+
+          <div class="menu-list">
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Panini</div>
+              </div>
+              <div class="item-price">6€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Nuggets de pollo</div>
+                <div class="item-desc">8 unidades</div>
+              </div>
+              <div class="item-price">6,5€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Tequeños</div>
+                <div class="item-desc">8 unidades</div>
+              </div>
+              <div class="item-price">8€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Cheese fries</div>
+              </div>
+              <div class="item-price">9€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Patatas 4 salsas</div>
+              </div>
+              <div class="item-price">5€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Hot dog</div>
+              </div>
+              <div class="item-price">5€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Nachos</div>
+                <div class="item-desc">Con queso y guacamole</div>
+              </div>
+              <div class="item-price">7,5€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Sandwich mixto</div>
+              </div>
+              <div class="item-price">3,5€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="postres-batidos">
+      <div class="frame">
+        <div class="frame-inner">
+          <div class="dual-section">
+            <div>
+              <h2 class="section-title">Postres</h2>
+              <div class="divider"></div>
+
+              <div class="menu-list">
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Tortitas</div>
+                    <div class="item-desc">
+                      3 unidades. Pregunta por los siropes disponibles
+                    </div>
+                  </div>
+                  <div class="item-price">5,5€</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="section-title">Batidos</h2>
+              <div class="divider"></div>
+
+              <div class="menu-list">
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Chocolate</div>
+                  </div>
+                  <div class="item-price">6€</div>
+                </div>
+
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Lotus</div>
+                  </div>
+                  <div class="item-price">6€</div>
+                </div>
+
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Kinder Bueno</div>
+                  </div>
+                  <div class="item-price">6€</div>
+                </div>
+
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Chocolate blanco</div>
+                  </div>
+                  <div class="item-price">6€</div>
+                </div>
+
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Frappé</div>
+                  </div>
+                  <div class="item-price">6€</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="bebidas">
+      <div class="frame">
+        <div class="frame-inner">
+          <h2 class="section-title">Bebidas</h2>
+          <div class="divider"></div>
+
+          <div class="menu-list">
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Coca-Cola</div>
+                <div class="item-desc">También disponible Zero</div>
+              </div>
+              <div class="item-price">3€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Nestea</div>
+                <div class="item-desc">Limón - Maracuyá</div>
+              </div>
+              <div class="item-price">3€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Fanta</div></div>
+              <div class="item-price">3€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Aquarius</div></div>
+              <div class="item-price">3€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Sprite</div></div>
+              <div class="item-price">3€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Redbull</div></div>
+              <div class="item-price">3,5€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Agua</div></div>
+              <div class="item-price">2,5€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="cervezas-vinos">
+      <div class="frame">
+        <div class="frame-inner">
+          <div class="dual-section">
+            <div>
+              <h2 class="section-title">Cervezas</h2>
+              <div class="divider"></div>
+
+              <div class="menu-list">
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Tercio de Mahou</div>
+                  </div>
+                  <div class="item-price">3,5€</div>
+                </div>
+
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Tinto de verano</div>
+                  </div>
+                  <div class="item-price">3,5€</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="section-title">Vinos</h2>
+              <div class="divider"></div>
+
+              <div class="menu-list">
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Copa de Alma</div>
+                  </div>
+                  <div class="item-price">3,5€</div>
+                </div>
+
+                <div class="menu-item">
+                  <div class="item-info">
+                    <div class="item-name">Botella de Alma</div>
+                  </div>
+                  <div class="item-price">15€</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="combinados">
+      <div class="frame">
+        <div class="frame-inner">
+          <h2 class="section-title">Combinados</h2>
+          <div class="divider"></div>
+
+          <div class="menu-list">
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Tanqueray</div>
+              </div>
+              <div class="item-price">7,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Brugal</div></div>
+              <div class="item-price">6,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Barceló</div></div>
+              <div class="item-price">6,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Beefeater</div>
+              </div>
+              <div class="item-price">6,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Puerto de Indias</div>
+              </div>
+              <div class="item-price">7,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Jagger</div></div>
+              <div class="item-price">6,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Jack Daniel´s</div>
+              </div>
+              <div class="item-price">7,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info">
+                <div class="item-name">Red LabelL</div>
+              </div>
+              <div class="item-price">7,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Vodka</div></div>
+              <div class="item-price">6,5€</div>
+            </div>
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Bombay</div></div>
+              <div class="item-price">7,5€</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="hookahs">
+      <div class="frame">
+        <div class="frame-inner">
+          <h2 class="section-title">Hookahs</h2>
+          <div class="divider"></div>
+
+          <div class="menu-list">
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Rubio</div></div>
+              <div class="item-price">12€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Fusión</div></div>
+              <div class="item-price">14€</div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-info"><div class="item-name">Negro</div></div>
+              <div class="item-price">16€</div>
+            </div>
+          </div>
+
+          <p class="footer-note">
+            Consulta con nuestro equipo. Para encontrar tu sabor ideal.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
